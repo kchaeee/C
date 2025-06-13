@@ -1,0 +1,21 @@
+void Max(int* ptr, int length, int* result)
+{
+   int x = 0;
+
+   for ( x = 0; x < length; x++)
+   {
+      if (*result < ptr[x])
+         *result = ptr[x];
+   }   
+}
+
+void main()
+{
+   int data[5] = {1,2,8,6,0};
+   int length = sizeof(data) / sizeof(int);
+   int result = -999;
+
+   Max(data,length,&result);
+
+   printf("max값은:%d", result);   // 포인터 변수를 활용하여 result 값에 Max가 저장되어있기 떄문에.
+}
