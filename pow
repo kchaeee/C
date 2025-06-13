@@ -1,0 +1,28 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+void hanoi(int n, int from, int by, int to)
+{
+   if (n == 1) //원판의 개수가 한개일때 
+      cout << from <<' '<< to << endl;
+   else
+   {
+      hanoi(n - 1, from, to, by);
+      cout << from <<' '<< to << endl;
+      hanoi(n - 1, by, from, to);
+   }
+}
+
+int main()
+{
+   int N = 0;
+   int count = 0;
+   
+   cin >> N;
+   count = pow(2, N) - 1; //pow함수는 2^N.
+   cout << count << endl; //총 횟수 출력.
+
+   hanoi(N, 1, 2, 3); //원반개수
+   return 0;
+}
